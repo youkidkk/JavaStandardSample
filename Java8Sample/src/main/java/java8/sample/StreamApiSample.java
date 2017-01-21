@@ -1,6 +1,7 @@
 package java8.sample;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 @SuppressWarnings("javadoc")
@@ -15,7 +16,7 @@ public class StreamApiSample {
                 // 2で割り切れるものだけにフィルタリングして
                 .filter(i -> i % 2 == 0)
                 // ソートして
-                .sorted()
+                .sorted(Comparator.reverseOrder())
                 // System.out#println で出力する
                 .forEach(System.out::println);
     }
