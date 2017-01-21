@@ -2,7 +2,6 @@ package java8.sample;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @SuppressWarnings("javadoc")
 public class StreamApiSample {
@@ -17,8 +16,6 @@ public class StreamApiSample {
                 .filter(i -> i % 2 == 0)
                 // ソートして
                 .sorted()
-                // List に変換して
-                .collect(Collectors.toList())
                 // System.out#println で出力する
                 .forEach(System.out::println);
     }
