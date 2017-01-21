@@ -8,10 +8,19 @@ import java.util.stream.Collectors;
 public class StreamApiSample {
 
     public static void main(String[] args) {
-        List<Integer> intList = Arrays.asList(1, 5, 3);
+        List<Integer> intList = Arrays.asList(1, 4, 5, 3, 2, 6, 7);
 
-        List<Integer> sortedList = intList.stream().sorted().collect(Collectors.toList());
-        sortedList.forEach(i -> System.out.println(i));
+        intList
+                // Stream にして
+                .stream()
+                // 2で割り切れるものだけにフィルタリングして
+                .filter(i -> i % 2 == 0)
+                // ソートして
+                .sorted()
+                // List に変換して
+                .collect(Collectors.toList())
+                // System.out#println で出力する
+                .forEach(System.out::println);
     }
 
 }
