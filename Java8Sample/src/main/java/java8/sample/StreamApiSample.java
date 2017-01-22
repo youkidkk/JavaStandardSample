@@ -1,17 +1,24 @@
 package java8.sample;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @SuppressWarnings("javadoc")
 public class StreamApiSample {
 
     public static void main(String[] args) {
-        List<Integer> intList = Arrays.asList(1, 5, 3);
+        List<Integer> intList = Arrays.asList(1, 4, 5, 3, 2, 6, 7);
 
-        List<Integer> sortedList = intList.stream().sorted().collect(Collectors.toList());
-        sortedList.forEach(i -> System.out.println(i));
+        intList
+                // Stream にして
+                .stream()
+                // 2で割り切れるものだけにフィルタリングして
+                .filter(i -> i % 2 == 0)
+                // ソートして
+                .sorted(Comparator.reverseOrder())
+                // System.out#println で出力する
+                .forEach(System.out::println);
     }
 
 }
