@@ -4,9 +4,6 @@ def propKeyMainClass = 'mainClass'
 /* プロパティキー ： ベースネーム */
 def propKeyBaseName = 'jarBaseName'
 
-/* 実行可能Jarファイル 付加文字列 */
-def execAddName = '-exec'
-
 
 /**
  * Jarファイル生成
@@ -16,41 +13,6 @@ def execAddName = '-exec'
 jar {
 	if (project.hasProperty(propKeyBaseName)) {
 		baseName = getProperty(propKeyBaseName)
-	}
-}
-
-
-// jarタスクの実行時に実行可能Jarファイル生成
-jar.doLast {
-	if (project.hasProperty(propKeyMainClass)) {
-		println ':executableJar'
-		tasks.executableJar.execute()
-	}
-}
-
-
-/**
- * 実行可能Jarファイル生成
- * ※ 使用する場合は gradle.properties に mainClass を設定する
- */
-task executableJar(type: Jar, dependsOn: jar)  {
-	if (project.hasProperty(propKeyBaseName)) {
-		baseName = getProperty(propKeyBaseName)
-	}
-	if (project.hasProperty(propKeyMainClass)) {
-		if (project.hasProperty(propKeyBaseName)) {
-			baseName = getProperty(propKeyBaseName)
-		}
-		baseName = baseName + execAddName
-
-		manifest {
-			attributes 'Main-Class' : getProperty(propKeyMainClass)
-		}
-		from configurations.compile.collect {it.isDirectory() ? it : zipTree(it)}
-		from '$buildDir/classes/main'
-		from '$buildDir/resources/main'
-	} else {
-		enabled = false
 	}
 }
 
