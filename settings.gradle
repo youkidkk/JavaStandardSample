@@ -1,5 +1,6 @@
 include 'ClassLoaderSample'
 include 'HamcrestSample'
+include 'JaxbSample'
 include 'Java8Sample'
 include 'JavaNioSample'
 include 'JUnitSample'

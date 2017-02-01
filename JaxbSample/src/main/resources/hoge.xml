@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<hoge>
+    <number>123</number>
+    <piyos>
+        <number>1</number>
+        <text>piyo piyo 1</text>
+    </piyos>
+    <piyos>
+        <number>2</number>
+        <text>piyo piyo 2</text>
+    </piyos>
+    <piyos>
+        <number>2</number>
+        <text>piyo piyo 3</text>
+    </piyos>
+    <text>text 321</text>
+</hoge>
