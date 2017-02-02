@@ -1,9 +1,11 @@
 package java8.sample;
 
+import com.google.common.collect.ImmutableMap;
+
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 
 @SuppressWarnings("javadoc")
 public class LambdaSample {
@@ -13,17 +15,16 @@ public class LambdaSample {
         stringList.forEach(s -> System.out.println(s));
         stringList.forEach(System.out::println);
 
-        @SuppressWarnings("serial")
-        Map<String, String> map = new HashMap<String, String>() {
-            {
-                this.put("foo", "fooVal");
-                this.put("bar", "barVal");
-            }
-        };
+        Map<String, String> map = ImmutableMap.of("foo", "fooVal", "bar", "barVal", "baz",
+                "bazVal");
         map.forEach((key, value) -> {
             System.out.println("key: " + key + " value: " + value);
         });
 
+        Function<Integer, String> func = i -> i + " + " + i + " = " + (i + i);
+        System.out.println(func.apply(1));
+        System.out.println(func.apply(3));
+        System.out.println(func.apply(5));
     }
 
 }

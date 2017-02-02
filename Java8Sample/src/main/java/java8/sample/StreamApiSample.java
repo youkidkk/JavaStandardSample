@@ -15,8 +15,10 @@ public class StreamApiSample {
                 .stream()
                 // 2で割り切れるものだけにフィルタリングして
                 .filter(i -> i % 2 == 0)
-                // ソートして
+                // 逆順でソートして
                 .sorted(Comparator.reverseOrder())
+                // カッコで括って
+                .map(i -> "[" + i + "]")
                 // System.out#println で出力する
                 .forEach(System.out::println);
     }
