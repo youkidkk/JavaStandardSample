@@ -16,7 +16,7 @@ import java.util.List;
 public class JaxbSample {
 
     /**
-     * Object -> XML 変換
+     * Object → XML 変換
      */
     public static void objectToXml() {
         System.out.println("★☆★ Object -> XML ★☆★");
@@ -32,7 +32,7 @@ public class JaxbSample {
     }
 
     /**
-     * XML -> Object 変換
+     * XML → Object 変換
      */
     public static void xmlToObject() {
         System.out.println("★☆★ XML -> Object ★☆★");
