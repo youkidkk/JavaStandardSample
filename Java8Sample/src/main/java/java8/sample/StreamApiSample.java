@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * StreamAPI サンプル
+ */
 @SuppressWarnings("javadoc")
 public class StreamApiSample {
 

@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
+/**
+ * ラムダ式サンプル
+ */
 @SuppressWarnings("javadoc")
 public class LambdaSample {
 
@@ -15,8 +18,8 @@ public class LambdaSample {
         stringList.forEach(s -> System.out.println(s));
         stringList.forEach(System.out::println);
 
-        Map<String, String> map = ImmutableMap.of("foo", "fooVal", "bar", "barVal", "baz",
-                "bazVal");
+        Map<String, String> map = ImmutableMap.of(
+                "foo", "fooVal", "bar", "barVal", "baz", "bazVal");
         map.forEach((key, value) -> {
             System.out.println("key: " + key + " value: " + value);
         });
