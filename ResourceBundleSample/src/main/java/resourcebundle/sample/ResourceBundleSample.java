@@ -1,5 +1,10 @@
 package resourcebundle.sample;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLClassLoader;
+import java.nio.file.Paths;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 @SuppressWarnings("javadoc")
@@ -22,6 +27,19 @@ public class ResourceBundleSample {
                 .getBundle(this.getClass().getPackage().getName().replace(".", "/") + ".test",
                         ENCODING_CONTROL);
         System.out.println(bundleCurrentPackageSlash.getString("test"));
+
+        // パスを指定してリソースを取得
+        try {
+            URL url = Paths.get("./prop").toFile().toURI().toURL();
+            System.out.println(url.toString());
+            URLClassLoader loader = new URLClassLoader(new URL[] { url });
+            // クラスパス内とは別のベース名を指定しないと読み込まれない
+            ResourceBundle bundleCurrentPath = ResourceBundle
+                    .getBundle("_test", Locale.getDefault(), loader, ENCODING_CONTROL);
+            System.out.println(bundleCurrentPath.getString("test"));
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
