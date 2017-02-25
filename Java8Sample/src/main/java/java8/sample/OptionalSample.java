@@ -5,7 +5,7 @@ import java.util.Optional;
 @SuppressWarnings("javadoc")
 public class OptionalSample {
 
-    public static void run(Optional<String> optional) {
+    public void run(Optional<String> optional) {
         // Optional#isPresent
         // 値が null でない場合、true を返却
         // 値が null の場合、false を返却
@@ -48,18 +48,27 @@ public class OptionalSample {
         // 値が null の場合、空の Optional が返却される
         Optional<Integer> mappedOptional = optional.map(s -> s.length());
         mappedOptional.ifPresent(i -> System.out.println("Optional の length は " + i + "です。"));
+
+        // Optional#flatMap
+        // 値が null でない場合、引数のラムダ式（戻り値は Optional）の戻り値を値とする Optional を返却する
+        // 値が null の場合、空の Optional が返却される
+        // ※ map と違い、二重に Optional で囲まれることはない
+        Optional<String> flatMappedOptional = optional.flatMap(s -> Optional.of(s + " の flatMap"));
+        System.out.println(flatMappedOptional);
     }
 
     public static void main(String[] args) {
+        OptionalSample sample = new OptionalSample();
+
         // null ではない場合
         System.out.println("★☆★ When not null ★☆★");
-        run(Optional.of("null ではない Optional。"));
+        sample.run(Optional.of("null ではない Optional"));
 
         System.out.println();
 
         // null の場合
         System.out.println("★☆★ When null ★☆★");
-        run(Optional.ofNullable(null));
+        sample.run(Optional.ofNullable(null));
     }
 
 }
