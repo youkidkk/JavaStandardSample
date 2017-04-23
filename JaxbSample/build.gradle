@@ -6,8 +6,6 @@ dependencies {
         'ch.qos.logback:logback-classic:1.1.7',
         'org.projectlombok:lombok:1.16.6'
     )
-    runtime (
-    )
     testCompile (
         'junit:junit:4.12'
     )
