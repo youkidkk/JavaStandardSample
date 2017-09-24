@@ -7,13 +7,9 @@ import java.util.Map;
 /**
  * Immutableコレクション サンプル。
  */
+@SuppressWarnings("javadoc")
 public class ImmutableCollectionSample {
 
-    /**
-     * メインメソッド。
-     *
-     * @param args
-     */
     public static void main(String[] args) {
         List.of("hoge", "fuga", "piyo").forEach(System.out::println);
 
