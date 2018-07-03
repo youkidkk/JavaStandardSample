@@ -1,0 +1,17 @@
+<root>
+  <sampleA>
+    <sampleB>a1</sampleB>
+    <sampleB>a2</sampleB>
+    <sampleB>a3</sampleB>
+  </sampleA>
+  <sampleA>
+    <sampleB>b1</sampleB>
+    <sampleB>b2</sampleB>
+    <sampleB>b3</sampleB>
+  </sampleA>
+  <sampleA>
+    <sampleB>c1</sampleB>
+    <sampleB>c2</sampleB>
+    <sampleB>c3</sampleB>
+  </sampleA>
+</root>
