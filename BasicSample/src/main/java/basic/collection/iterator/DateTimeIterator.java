@@ -1,5 +1,6 @@
 package basic.collection.iterator;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
@@ -12,16 +13,16 @@ public class DateTimeIterator implements Iterable<LocalDateTime>, Iterator<Local
 
     private LocalDateTime end;
 
-    private int stepSeconds;
+    private Duration step;
 
     private LocalDateTime current;
 
-    public DateTimeIterator(LocalDateTime start, LocalDateTime end, int stepSeconds) {
+    public DateTimeIterator(LocalDateTime start, LocalDateTime end, Duration step) {
         super();
         this.end = end;
-        this.stepSeconds = stepSeconds;
+        this.step = step;
 
-        current = start;
+        this.current = start;
     }
 
     @Override
@@ -31,7 +32,7 @@ public class DateTimeIterator implements Iterable<LocalDateTime>, Iterator<Local
 
     @Override
     public boolean hasNext() {
-        if (current.compareTo(end) < 0) {
+        if (this.current.compareTo(this.end) < 0) {
             return true;
         }
         return false;
@@ -39,8 +40,8 @@ public class DateTimeIterator implements Iterable<LocalDateTime>, Iterator<Local
 
     @Override
     public LocalDateTime next() {
-        LocalDateTime result = current;
-        current = current.plusSeconds(stepSeconds);
+        LocalDateTime result = this.current;
+        this.current = this.current.plus(this.step);
 
         return result;
     }
@@ -49,7 +50,9 @@ public class DateTimeIterator implements Iterable<LocalDateTime>, Iterator<Local
         LocalDateTime now = LocalDateTime.now();
         System.out.println("Now : " + now.format(FORMATTER));
 
-        for (LocalDateTime current : new DateTimeIterator(now.withNano(0), now.plusMinutes(1), 7)) {
+        Iterable<LocalDateTime> iterator = new DateTimeIterator(
+                now.withNano(0), now.plusMinutes(1), Duration.ofSeconds(7));
+        for (LocalDateTime current : iterator) {
             System.out.println("      " + current.format(FORMATTER));
         }
     }
