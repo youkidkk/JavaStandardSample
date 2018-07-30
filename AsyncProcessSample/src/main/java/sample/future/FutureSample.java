@@ -1,5 +1,7 @@
 package sample.future;
 
+import sample.callable.SampleTask;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;

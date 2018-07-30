@@ -1,5 +1,7 @@
 package sample.future;
 
+import sample.callable.SampleTask;
+
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
